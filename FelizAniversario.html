@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>♥JÚLIA♥</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <strong>Minha amada Júlia ♥</strong>
+                        <p>Gostaria de parabenizar você por esse dia tão especial que marca seu nascimento
+                            sou muito grato pelos seus pais por terem feito você, a pessoa mais especial
+                            que eu ja tive na minha vida!
+                            <br>
+                            Quero passar todos os aniversários possiveis seus com você, eu te amo demais!
+                            <br>
+                            Espero que você tenha muitos anos felizes de vida, saúde, e que você continue
+                            nessa disposição que você tem para aprender as coisas e melhorar, estou com você nessa
+                            jornada, espero que você conte comigo para qualquer coisa que esteja por vir!!
+                            <br>
+                            Eu te amo demais! ♥
+                        </p>
+                    </div>
+                </div>
+                <div class="depara">
+                    <p>De; Fabio
+                        <br>
+                        Para; Júlia ♥
+                    </p>
+                </div>
+            </div>
+            <div class="heart"></div>
+        </div>
+    </div>
+    <script>
+        const envelope = document.querySelector('.envelope-wrapper')
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('flap')
+        })
+    </script>
+</body>
+
+</html>
+<style>
+    :root {
+        --primary: #fff;
+        --bg-color: rgb(255, 0, 217);
+        --bg-envelope-color: #f5edd1;
+        --envelope-tab: #ecdeb8;
+        --envelope-cover: #e6cfa7;
+        --shadow-color: rgba(0, 0, 0, 0.2);
+        --txt-color: #444;
+        --heart-color: rgb(252, 8, 231);
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: var(--bg-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        height: 140vh;
+        display: grid;
+        place-items: center;
+    }
+
+    .container>.envelope-wrapper {
+        background: var(--bg-envelope-color);
+        box-shadow: 0 0 40px var(--shadow-color);
+    }
+
+    .envelope-wrapper>.envelope {
+        position: relative;
+        width: 500px;
+        height: 430px;
+    }
+
+    .depara {
+        position: absolute;
+        z-index: 4;
+        top: 80%;
+        left: 3%;
+    }
+
+    .envelope-wrapper>.envelope::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        z-index: 2;
+        border-top: 230px solid var(--envelope-tab);
+        border-right: 250px solid transparent;
+        border-left: 250px solid transparent;
+        transform-origin: top;
+        transition: all 0.5s ease-in-out 0.7s;
+    }
+
+    .envelope-wrapper>.envelope::after {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        width: 0px;
+        height: 0px;
+        border-top: 230px solid transparent;
+        border-right: 250px solid var(--envelope-cover);
+        border-bottom: 200px solid var(--envelope-cover);
+        border-left: 250px solid var(--envelope-cover);
+    }
+
+    .envelope>.letter {
+        position: absolute;
+        right: 20%;
+        bottom: 0;
+        width: 54%;
+        height: 90%;
+        background: var(--primary);
+        text-align: center;
+        transition: all 1s ease-in-out;
+        box-shadow: 0 0 5px var(--shadow-color);
+        padding: 5px 10px;
+    }
+
+    .envelope>.letter>.text {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: var(--txt-color);
+        text-align: left;
+        font-size: 10px;
+    }
+
+    .heart {
+        position: absolute;
+        top: 72%;
+        left: 50%;
+        width: 15px;
+        height: 15px;
+        background: var(--heart-color);
+        z-index: 4;
+        transform: translate(-50%, -20%) rotate(45deg);
+        transition: transform 0.5s ease-in-out 1s;
+        box-shadow: 0 1px 6px var(--shadow-color);
+        cursor: pointer;
+    }
+
+    .heart:before,
+    .heart:after {
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background-color: var(--heart-color);
+        border-radius: 50%;
+    }
+
+    .heart:before {
+        top: -7.5px;
+    }
+
+    .heart:after {
+        right: 7.5px;
+    }
+
+    .flap>.envelope:before {
+        transform: rotateX(180deg);
+        z-index: 0;
+    }
+
+    .flap>.envelope>.letter {
+        bottom: 100px;
+        transform: scale(1.5);
+        transition-delay: 1s;
+    }
+
+    .flap>.heart {
+        transform: rotate(90deg);
+        transition-delay: 0.4s;
+    }
+    /* Estilos para telas menores, como a do iPhone 12 */
+@media only screen and (max-width: 428px) {
+    .envelope-wrapper {
+        width: 100%;
+        height: auto;
+    }
+
+    .envelope {
+        width: 100%;
+        height: auto;
+    }
+
+    .letter {
+        width: 90%;
+        right: 5%;
+    }
+
+    .heart {
+        top: 71%;
+        left: 56%;
+    }
+
+    .depara {
+        top: 70%;
+        left: 10%;
+    }
+}
+@media only screen and (max-width: 980px) {
+    .envelope-wrapper {
+        width: 100%;
+        height: auto;
+    }
+
+    .envelope {
+        width: 100%;
+        height: auto;
+    }
+
+    .letter {
+        width: 90%;
+        left: 25%;
+    }
+
+    .heart {
+        top: 71%;
+        left: 50%;
+    }
+
+    .depara {
+        top: 70%;
+        left: 10%;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .heart {
+        top: 75%;
+        left: 50%;
+    }
+}
+</style>
